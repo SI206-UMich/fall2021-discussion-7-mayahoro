@@ -20,6 +20,12 @@ def read_file(filename):
     return lines
 
 def find_word(string_list):
+    lst = []
+    for i in string_list:
+        regEx = re.findall('\S+\d\d\d\S+',i)
+        for x in regEx:
+            lst.append(x)
+    return lst
     """ Return a list of words that contain three digit numbers in the middle. """
 
     # initialize an empty list
@@ -33,10 +39,16 @@ def find_word(string_list):
     # loop through the found words and add the words to your empty list 
 
     #return the list of all words that start with the letter B, E, or T
-    pass
+    
 
 
 def find_days(string_list):
+    lst = []
+    for i in string_list:
+        regEx = re.findall('\d\d/\d\d/\d\d\d\d',i)
+        for x in regEx:
+            lst.append(x)
+    return x
     """ Return a list of days from the list of strings the dates format in the text are MM/DD/YYYY. """  
 
     # initialize an empty list
@@ -50,9 +62,16 @@ def find_days(string_list):
     # loop through the found dates and only add the days to your empty list 
     
     #return the list of days
-    pass
+
 
 def find_domains(string_list):
+    lst = []
+    for i in string_list:
+        regEx = re.findall('^https?://[\w.]+',i)
+        for x in regEx:
+            domain = x.split('//')[1].strip('www.')
+            lst.append(domain)
+    return lst
     """ Return a list of web address domains from the list of strings the domains of a wbsite are after www. """
 
     # initialize an empty list
@@ -71,7 +90,7 @@ def find_domains(string_list):
     # add the domains to your empty list
     
     #return the list of domains
-    pass
+
 
 class TestAllMethods(unittest.TestCase):
 
